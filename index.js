@@ -25,7 +25,7 @@ glob(filePattern, {}, (error, files) => {
 });
 
 function numberOfLines(string) {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     let count = 0;
     for (let i = 0; i < string.length; i++) {
       if (string.charAt(i) === '\n') {
@@ -37,7 +37,7 @@ function numberOfLines(string) {
 }
 
 function filterContent(content) {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     if (contentRegexp.test(content)) {
       resolve(content);
     } else {
@@ -47,8 +47,8 @@ function filterContent(content) {
 }
 
 function readFile(filepath) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(filepath, 'utf8', function(error, data) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filepath, 'utf8', (error, data) => {
       if (error) {
         reject(error);
       } else {
